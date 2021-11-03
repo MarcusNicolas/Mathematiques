@@ -1,0 +1,40 @@
+\chapter{Classes et ensembles}
+
+
+\section{Axiomatique NBG}
+
+
+  \begin{discussion}
+    La méthode axiomatique consiste à faire reposer un édifice mathématique sur un nombre restreint de propositions tenues pour vraies, appelées \emph{axiomes}. Le système axiomatique sur lequel nous nous baserons dans la suite de ce cours se nomme système von Neumann--Bernays--Gödel, ou, de manière plus concise, système NBG.
+    
+    Les objets dont traite cette théorie sont appelées des \emph{classes}, liées les unes par rapport aux autres par les relations d'égalité et d'appartenance, notées $=$ et $\in$. Le premier axiome sert à lier ces deux symboles.
+  \end{discussion}
+
+  \begin{discussion}[Relation d'inclusion]
+    dd
+  \end{discussion}
+
+  \begin{axiome}[extensionnalité]
+    $\pourtout{x} \pourtout{y} x=y \Leftrightarrow \p{x \subseteq y \land y \subseteq x}$
+  \end{axiome}
+
+  \begin{axiome}[réunion]
+    $\pourtout{x} \existe{y} \pourtout{z} {z \in y} \Leftrightarrow \p{\existe{w} z \in w \land w \in x}$
+  \end{axiome}
+
+  \begin{axiome}[puissance]
+    $\pourtout{x} \existe{y} \pourtout{z} {z \in y} \Leftrightarrow {z \subseteq x}$
+  \end{axiome}
+
+  \begin{axiome}[infini]
+    $\existe{I} {I \neq \vide} \land \p{\pourtout{x} {x \in I} \Rightarrow {x \cup \classe{x} \in I}}$
+  \end{axiome}
+
+  \begin{axiome}[fondation]
+    $\pourtout{x \in \univers} {x \neq \vide} \Rightarrow \p{\existe{y \in x} x \cap y \neq \vide}$
+  \end{axiome}
+
+
+
+\section{Arithmétique ordinale}
+

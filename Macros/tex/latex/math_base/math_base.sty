@@ -1,0 +1,57 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math_base}
+
+
+\RequirePackage{amssymb}
+\RequirePackage{mathrsfs}
+\RequirePackage{stmaryrd}
+\RequirePackage{mathtools}
+\RequirePackage{bm}
+
+\RequirePackage{math_env}
+
+\ProcessOptions
+
+
+% varepsilon / varphi
+
+\renewcommand\epsilon{\varepsilon}
+\renewcommand\phi{\varphi}
+
+
+% Macros
+
+\DeclarePairedDelimiter\p{(}{)}
+\DeclarePairedDelimiterX\crochets[1]{[}{]}{\, #1 \,}
+
+
+\makeatletter
+
+\let\oldp\p
+\def\p{\@ifstar{\oldp}{\oldp*}}
+
+\let\oldcrochets\crochets
+\def\crochets{\@ifstar{\oldcrochets}{\oldcrochets*}}
+
+
+\makeatother
+
+
+
+%%
+
+
+\newcommand\eqdef{\triangleq}
+\newcommand\complementaire{\complement}
+
+\newcommand\pourtout[1]{\forall {#1}, \;}
+\newcommand\existe[1]{\exists {#1}, \;}
+\newcommand\existeunique[1]{\exists ! {#1}, \;}
+
+
+\newcommand\etoile{*}
+\newcommand\plus{{\raisebox{0.6pt}{\mbox{\tiny$+$}}}}
+\newcommand\moins{{\raisebox{0.6pt}{\mbox{\tiny$-$}}}}
+
+
+\endinput
