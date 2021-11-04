@@ -5,12 +5,19 @@
 \RequirePackage{amssymb}
 \RequirePackage{mathrsfs}
 \RequirePackage{stmaryrd}
+
+% Pour éviter un avertissement
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
 \RequirePackage{mathtools}
 \RequirePackage{bm}
 
 \RequirePackage{math_env}
 
 \ProcessOptions
+
+
+
 
 
 % varepsilon / varphi
@@ -41,7 +48,7 @@
 %%
 
 
-\newcommand\eqdef{\triangleq}
+\newcommand\defeq{\vcentcolon=}
 \newcommand\complementaire{\complement}
 
 \newcommand\pourtout[1]{\forall {#1}, \;}

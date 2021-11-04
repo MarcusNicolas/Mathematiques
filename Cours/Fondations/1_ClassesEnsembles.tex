@@ -7,16 +7,72 @@
   \begin{discussion}
     La méthode axiomatique consiste à faire reposer un édifice mathématique sur un nombre restreint de propositions tenues pour vraies, appelées \emph{axiomes}. Le système axiomatique sur lequel nous nous baserons dans la suite de ce cours se nomme système von Neumann--Bernays--Gödel, ou, de manière plus concise, système NBG.
     
-    Les objets dont traite cette théorie sont appelées des \emph{classes}, liées les unes par rapport aux autres par les relations d'égalité et d'appartenance, notées $=$ et $\in$. Le premier axiome sert à lier ces deux symboles.
+    Les objets dont traite cette théorie sont appelées des \emph{classes}, liées les unes par rapport aux autres par les relations d'égalité et d'appartenance, notées $=$ et $\in$. Étant données deux classes $x$ et $y$, on dit que:
+    \begin{itemize}
+      \item \og $x$ égale $y$ \fg{} si $x=y$;
+      \item \og $x$ est un élément de $y$ \fg{}, ou que \og $x$ appartient à $y$ \fg{}, si $x \in y$.
+    \end{itemize}
   \end{discussion}
 
+  \begin{discussion}[Ensembles]
+    Si $x$ est un objet de la théorie et $y$ une variable qui n'apparaît pas $x$ (ce sera toujours sous-entendu dans des cas similaires par la suite), on abrège en $\estEns\p{x}$ la formule:
+    \[\existe{y} {x \in y}\]
+    On dit que $x$ est un \emph{ensemble} si $\estEns\p{x}$, sinon la classe $x$ est dite \emph{propre}.
+  \end{discussion}
+
+  \begin{axiome}\label{axiomeEgalite}
+    La relation d'égalité vérifie:
+    \begin{enumerate}
+      \item $\pourtout{x} {x=x}$
+      \item $\pourtout{x} \pourtout{y} {{x=y} \Rightarrow {y=x}}$
+      \item $\pourtout{x} \pourtout{y} \pourtout{z} {\p{{x=y} \land {y=z}} \Rightarrow {x=z}}$
+      \item $\pourtout{x} \pourtout{y} {x=y} \Rightarrow \pourtout{z} \p{{x \in z} \Leftrightarrow {y \in z}}$
+    \end{enumerate}
+  \end{axiome}
+
+
+  \begin{remarque}
+    L'\cref{axiomeEgalite} semble effectivement correspondre à l'idée que l'on se fait de l'égalité. Le deuxième point est par exemple illustré par la langue: on a en effet tendance à dire \og $x$ et $y$ sont égales \fg{} et non pas \og $x$ égale $y$ \fg{}, or dans cette formulation $x$ et $y$ jouent un rôle symétrique.
+  \end{remarque}
+
+
   \begin{discussion}[Relation d'inclusion]
-    dd
+    Étant données deux classes $x$ et $y$, on abrège la formule:
+    \[\pourtout{z} {z \in x} \Rightarrow {z \in y}\]
+    par $x \subseteq y$. Lorsqu'elle est vraie, on dit que \og $x$ est contenue dans $y$ \fg.
   \end{discussion}
 
   \begin{axiome}[extensionnalité]
     $\pourtout{x} \pourtout{y} x=y \Leftrightarrow \p{x \subseteq y \land y \subseteq x}$
   \end{axiome}
+
+  \begin{discussion}
+    L'axiome d'extensionnalité signifie que deux classes sont égales si et seulement si elles ont les mêmes éléments: l'égalité est entièrement déterminée par l'appartenance. Plus pragmatiquement, c'est cette axiome qui justifie le principe de la preuve de l'égalité par double inclusion.
+  \end{discussion}
+
+  \begin{axiome}[paire]
+    \[\pourtout{x} \pourtout{y} \p{\estEns\p{x} \land \estEns\p{y}} \Rightarrow \existe{p} \p{\pourtout{z} {z \in p} \Leftrightarrow \p{{z=x} \lor {z=y}}}\]
+  \end{axiome}
+
+  \begin{discussion}[Paires et couples]
+    Étant donnés deux ensembles $x$ et $y$, l'axiome de la paire garantit l'existence -- unique par extensionnalité -- d'une classe dont les éléments sont exactement $x$ et $y$. C'est ce que l'on appelle la \emph{paire} de $x$ et $y$, notée $\classe{x,y}$. Dans le cas où $x=y$, on parle du \emph{singleton} de $x$ et on le note $\classe{x}$.
+    
+    Il découle immédiatement de l'axiome d'extensionnalité que $\classe{y,x}$  n'est autre que $\classe{x,y}$, mais il se trouve que dans de nombreuses situations il est commode d'avoir une construction qui garde en mémoire les données de $x$, $y$ mais également de l'ordre dans lequel sont fournis les arguments $x$ et $y$.
+    
+    On définit pour cela:
+    \[\p{x,y} \defeq \classe{\classe{x}, \classe{x,y}}\]
+    L'objet $\p{x,y}$ est appelé \emph{couple} de $x$ et $y$.
+  \end{discussion}
+
+  \begin{proposition}
+    Si $x$, $x'$, $y$ et $y'$ sont quatre ensembles, alors:
+    \[\p{x,y} = \p{x',y'} \Leftrightarrow \p{{x=x'} \land {y=y'}}\]
+  \end{proposition}
+
+  \begin{proof}
+    OUI MA PREUVE
+  \end{proof}
+
 
   \begin{axiome}[réunion]
     $\pourtout{x} \existe{y} \pourtout{z} {z \in y} \Leftrightarrow \p{\existe{w} z \in w \land w \in x}$
@@ -27,7 +83,7 @@
   \end{axiome}
 
   \begin{axiome}[infini]
-    $\existe{I} {I \neq \vide} \land \p{\pourtout{x} {x \in I} \Rightarrow {x \cup \classe{x} \in I}}$
+    $\existe{I} {\existe{x}} \land \p{\pourtout{x} {x \in I} \Rightarrow {x \cup \classe{x} \in I}}$
   \end{axiome}
 
   \begin{axiome}[fondation]
