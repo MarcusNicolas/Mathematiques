@@ -18,6 +18,12 @@
    \ifthenelse{\equal{#1}{}}{}{\textit{#1 ---}}
 }{\par\addvspace{\medskipamount}}
 
+\newenvironment{justif}
+{\begin{proof}[Justification]}{\end{proof}}
+
+\newenvironment{dem}
+{\begin{proof}[Démonstration]}{\end{proof}}
+
 
 
 \theoremstyle{plain}
@@ -26,11 +32,15 @@
 \newtheorem{lemme}[theoreme]{Lemme}
 \newtheorem{axiome}[theoreme]{Axiome}
 
+\newtheorem{metatheoreme}[theoreme]{Métathéorème}
+
+
 \theoremstyle{remark}
 \newtheorem*{remarque}{Remarque}
 
 \theoremstyle{definition}
-\newtheorem{definition}{Définition}
+\newtheorem{definition}[theoreme]{Définition}
+\newtheorem{exemple}[theoreme]{Exemple}
 
 
 \crefname{theoreme}{théorème}{théorèmes}
@@ -42,7 +52,12 @@
 \crefname{axiome}{axiome}{axiomes}
 \Crefname{axiome}{Axiome}{Axiomes}
 \crefname{definition}{définition}{définitions}
-\crefname{definition}{Définition}{Définitions}
+\Crefname{definition}{Définition}{Définitions}
+\crefname{exemple}{exemple}{exemples}
+\Crefname{exemple}{Exemple}{Exemples}
+
+\crefname{metatheoreme}{metathéorème}{metathéorèmes}
+\Crefname{metatheoreme}{Metathéorème}{Metathéorèmes}
 
 
 

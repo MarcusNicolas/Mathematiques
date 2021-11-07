@@ -15,7 +15,7 @@
   \end{discussion}
 
   \begin{discussion}[Ensembles]
-    Si $x$ est un objet de la théorie et $y$ une variable qui n'apparaît pas $x$ (ce sera toujours sous-entendu dans des cas similaires par la suite), on abrège en $\estEns\p{x}$ la formule:
+    Si $x$ est une classe -- c'est-à-dire un terme du langage -- et $y$ une variable qui n'apparaît pas $x$ (ce sera toujours sous-entendu dans des cas similaires par la suite), on abrège en $\estEns\p{x}$ la formule:
     \[\existe{y} {x \in y}\]
     On dit que $x$ est un \emph{ensemble} si $\estEns\p{x}$, sinon la classe $x$ est dite \emph{propre}.
   \end{discussion}
@@ -47,8 +47,31 @@
   \end{axiome}
 
   \begin{discussion}
-    L'axiome d'extensionnalité signifie que deux classes sont égales si et seulement si elles ont les mêmes éléments: l'égalité est entièrement déterminée par l'appartenance. Plus pragmatiquement, c'est cette axiome qui justifie le principe de la preuve de l'égalité par double inclusion.
+    Une implication de l'axiome d'extensionnalité justifie le principe de la preuve de l'égalité par double inclusion: deux classes sont égales si 
+    signifie que deux classes sont égales si et seulement si elles ont les mêmes éléments: l'égalité est entièrement déterminée par l'appartenance. Plus pragmatiquement, c'est cette axiome qui justifie le principe de la preuve de l'égalité par double inclusion.
+    
+    L'autre implication mérite également que l'on s'y penche. Si $x$, $y$ et $z$ sont des classes, elle s'écrit:
+    \[{x=y} \Rightarrow \p{{z \in x} \Leftrightarrow {z \in y}}\]
+    L'\cref{axiomeEgalite} donne aussi:
+    \[{x=y} \Rightarrow \p{{x \in z} \Leftrightarrow {y \in z}}
+    \quad\text{et}\quad
+    {x=y} \Rightarrow \p{{x=z} \Leftrightarrow {y=z}}\]
+    On se convainc qu'alors:
+    \[{x=y} \Rightarrow \p{\bm{\Phi}\p{x} \Leftrightarrow \bm{\Phi}\p{y}}\]
+    pour tout formule $\bm{\Phi}$ de la théorie. Ce n'est évidemment pas une démonstration rigoureuse, mais un énoncé du métalangage. Cependant on ne prendra pas la peine de le justifier dans chaque cas particulier, car la preuve s'en déduira à chaque fois de ce que nous avons établi plus haut.
   \end{discussion}
+
+
+  \begin{metatheoreme}
+    Si $\form{\Phi}$ est une formule dans laquelle les variables $x$ et $y$ n'apparaissent pas, alors:
+    \[{x=y} \Rightarrow \p{\form{\Phi}\p{x} \Leftrightarrow \form{\Phi}\p{y}}\]
+    est un théorème. Autrement dit, deux objets égaux sont indiscernables.
+  \end{metatheoreme}
+
+  \begin{justif}
+    fdzss
+  \end{justif}
+
 
   \begin{axiome}[paire]
     \[\pourtout{x} \pourtout{y} \p{\estEns\p{x} \land \estEns\p{y}} \Rightarrow \existe{p} \p{\pourtout{z} {z \in p} \Leftrightarrow \p{{z=x} \lor {z=y}}}\]
@@ -73,17 +96,21 @@
     OUI MA PREUVE
   \end{proof}
 
+  \begin{axiome}
+    OUI OUI EXISTENCE DE CLASSES
+  \end{axiome}
+
 
   \begin{axiome}[réunion]
-    $\pourtout{x} \existe{y} \pourtout{z} {z \in y} \Leftrightarrow \p{\existe{w} z \in w \land w \in x}$
+    \[\pourtout{x \in \univers} \existe{y \in \univers} \pourtout{z} {z \in y} \Leftrightarrow \p{\existe{w} z \in w \land w \in x}\]
   \end{axiome}
 
   \begin{axiome}[puissance]
-    $\pourtout{x} \existe{y} \pourtout{z} {z \in y} \Leftrightarrow {z \subseteq x}$
+    \[\pourtout{x \in \univers} \existe{y \in \univers} \pourtout{z} {z \in y} \Leftrightarrow {z \subseteq x}\]
   \end{axiome}
 
   \begin{axiome}[infini]
-    $\existe{I} {\existe{x}} \land \p{\pourtout{x} {x \in I} \Rightarrow {x \cup \classe{x} \in I}}$
+    $\existe{I} {\vide \in I} \land \p{\pourtout{x} {x \in I} \Rightarrow {x \cup \classe{x} \in I}}$
   \end{axiome}
 
   \begin{axiome}[fondation]

@@ -1,0 +1,69 @@
+\chapter{Métamathématique}
+
+
+Ce chapitre a pour objetif de réglementer aussi formellement que possible la pratique mathématique. Évidemment, il nous est impossible d'être aussi rigoureux FINIR, DIRE QU'ON EST DANS LE METALANGAGE. POUR CELA ON SE LIMITE A DES MANIPULATIONS ALGORITHMIQUES SUR DES STRUCTURES FINIES ---> TOUT CE CHAPITRE EST IMPLEMENTABLE SUR UNE MACHINE.
+
+Tous les symboles relatifs au métalangage seront dans la suite typographiés en gras. Typiquement, les symboles $\meta{0}, \meta{1}, \meta{2}, \dots$ désignent les entiers positifs du métalangage.
+
+
+\section{Syntaxe}
+
+  \begin{discussion}
+    On appelle \emph{symbole logique} les signes $\neg, \lor, \liota, \exists$.
+  \end{discussion}
+
+  \begin{discussion}
+    Un \emph{langage} est la donnée:
+    \begin{itemize}
+      \item d'une liste finie de \emph{symboles de relations} $\meta{R_1}, \dots, \meta{R_n}$ munis de leur \emph{arité}, contenant le \emph{symbole d'égalité} $=$ d'arité $2$;
+      
+      \item d'une infinité de \emph{symboles de variables} $\meta{v_0}, \meta{v_1}, \meta{v_2}, \dots$\footnote{Dans notre cas, ce seront des lettres latines et grecques suivies d'un nombre arbitraire de primes, par exemple $x$ ou $\alpha''$.}.
+    \end{itemize}
+    Dans cette description, il est bien sûr supposé implicitement que les collections des symboles logiques, de relations et de variables sont disjointes. Considérées simultanément, elles forment ce que l'on appelle les \emph{symboles} du langage.
+    
+    On fixe dans la suite un langage $\meta{\mL}$. Une \emph{expression} de $\meta{\mL}$ est un arbre enraciné dont chaque n\oe{}ud est étiqueté par un symbole de $\meta{\mL}$ ou par une référence à un autre n\oe{}ud. Graphiquement, on représentera les référence d'un n\oe{}ud à un autre par une flèche pointillée. Les expressions seront désignées dans la suite par des lettres grecques.
+    
+    \textbf{TODO}: Il n'est pas commode de représenter un arbre à chaque fois, dans la pratique courante on les écrira en ligne (?) avec des parenthèses
+  \end{discussion}
+
+  \begin{discussion}
+    Étant donnés $\meta{s}$ un symbole de $\meta{\mL}$, $\meta{x}$ une variable de $\meta{\mL}$ et $\meta{\xi}$ une expression de $\meta{\mL}$, on désigne par $\p{\meta{sx}}\meta{\xi}$ l'expression obtenue en rajoutant à $\meta{\xi}$ une racine étiquetée par $\meta{s}$, et remplaçant chaque étiquette $\terme{x}$ par une référence à cette nouvelle racine.
+  \end{discussion}
+
+  \begin{exemple}
+    Si $\meta{\xi}$ désigne l'expression
+    \begin{figure}[h]
+      \centering
+      \includegraphics{exempleExpression1}
+    \end{figure}
+
+    \noindent alors $\p{\neg x}\meta{\xi}$ est:
+    \begin{figure}[h]
+      \centering
+      \includegraphics{exempleExpression2}
+    \end{figure}
+
+    \textbf{TODO}: UTILISER TIKZ
+  \end{exemple}
+
+  \begin{discussion}
+    Les \emph{formules} et les \emph{termes} de $\meta{\mL}$ sont définis récursivement de la façon suivante (à refaire, \textbf{TODO}):
+    \begin{itemize}
+      \item si $\symbRel{R}$ est un symbole de relation d'arité $n$ et si $\terme{t}_1, \dots, \terme{t}_n$ sont des termes, alors $\symbRel{R}\p{\terme{t}_1, \dots, \terme{t}_n}$ est une formule, dite \emph{atomique};
+      \item si $\form{\phi}$ est une formule alors $\neg\form{\phi}$ aussi;
+      \item si $\form{\phi}$ et $\form{\psi}$ sont deux formules, alors $\form{\phi} \lor \form{\psi}$ également;
+      \item si $\form{\phi}$ est une formule et si $\terme{x}$ est une variable alors $\p{\exists\terme{x}}\form{\phi}$ aussi.
+    \end{itemize}
+    et:
+    \begin{itemize}
+      \item les variables sont des termes;
+      \item si $\form{\phi}$ est une formule et si $\terme{x}$ est une variable, alors $\p{\liota\terme{x}}\form{\phi}$ est un terme.
+    \end{itemize}
+  \end{discussion}
+
+
+\section{Sémantique}
+
+
+\section{Relation d'égalité}
+
