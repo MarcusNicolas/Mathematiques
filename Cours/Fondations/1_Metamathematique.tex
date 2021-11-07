@@ -26,19 +26,25 @@ Tous les symboles relatifs au métalangage seront dans la suite typographiés en
     \textbf{TODO}: Il n'est pas commode de représenter un arbre à chaque fois, dans la pratique courante on les écrira en ligne (?) avec des parenthèses
   \end{discussion}
 
+
+  
+
+  \begin{discussion}[Substitution]
+    Étant données $\meta{\alpha}$ et $\meta{\xi}$ deux expressions et $\meta{x}$ une variable, l'écriture $\meta{\xi}\subst{\meta{x}}{\meta{\alpha}}$ désigne l'expression obtenue en remplaçant dans $\meta{\xi}$ toutes les feuilles étiquetées par $\meta{x}$ par l'arbre $\meta{\alpha}$.
+  \end{discussion}
+
   \begin{discussion}
-    Étant donnés $\meta{s}$ un symbole de $\meta{\mL}$, $\meta{x}$ une variable de $\meta{\mL}$ et $\meta{\xi}$ une expression de $\meta{\mL}$, on désigne par $\p{\meta{sx}}\meta{\xi}$ l'expression obtenue en rajoutant à $\meta{\xi}$ une racine étiquetée par $\meta{s}$, et remplaçant chaque étiquette $\terme{x}$ par une référence à cette nouvelle racine.
+    Étant donnés $\meta{s}$ un symbole de $\meta{\mL}$, $\meta{x}$ une variable de $\meta{\mL}$ et $\meta{\xi}$ une expression de $\meta{\mL}$, on désigne par $\p{\meta{sx}}\meta{\xi}$ l'expression obtenue en rajoutant à $\meta{\xi}$ une racine étiquetée par $\meta{s}$, et remplaçant chaque étiquette $\meta{x}$ par une référence à cette nouvelle racine.
   \end{discussion}
 
   \begin{exemple}
     Si $\meta{\xi}$ désigne l'expression
-    \begin{figure}[h]
+    \begin{figure}[H]
       \centering
       \includegraphics{exempleExpression1}
     \end{figure}
-
     \noindent alors $\p{\neg x}\meta{\xi}$ est:
-    \begin{figure}[h]
+    \begin{figure}[H]
       \centering
       \includegraphics{exempleExpression2}
     \end{figure}
@@ -49,15 +55,26 @@ Tous les symboles relatifs au métalangage seront dans la suite typographiés en
   \begin{discussion}
     Les \emph{formules} et les \emph{termes} de $\meta{\mL}$ sont définis récursivement de la façon suivante (à refaire, \textbf{TODO}):
     \begin{itemize}
-      \item si $\symbRel{R}$ est un symbole de relation d'arité $n$ et si $\terme{t}_1, \dots, \terme{t}_n$ sont des termes, alors $\symbRel{R}\p{\terme{t}_1, \dots, \terme{t}_n}$ est une formule, dite \emph{atomique};
-      \item si $\form{\phi}$ est une formule alors $\neg\form{\phi}$ aussi;
-      \item si $\form{\phi}$ et $\form{\psi}$ sont deux formules, alors $\form{\phi} \lor \form{\psi}$ également;
-      \item si $\form{\phi}$ est une formule et si $\terme{x}$ est une variable alors $\p{\exists\terme{x}}\form{\phi}$ aussi.
+      \item si $\meta{R}$ est un symbole de relation d'arité $k$ et si $\meta{\tau_1}, \dots, \meta{\tau_k}$ sont des termes, alors l'expression:
+      \begin{figure}[H]
+        \centering
+        \includegraphics{formuleCas1}
+      \end{figure}
+      est une formule, dite \emph{atomique}, notée $\meta{R}\p{\meta{\tau_1}, \dots, \meta{\tau_k}}$;
+      
+      \item si $\meta{\phi}$ et $\meta{\psi}$ sont des formules, alors les expressions:
+      \begin{figure}[H]
+        \centering
+        \includegraphics{formuleCas2}
+        \includegraphics{formuleCas3}
+      \end{figure}
+      aussi, respectivement désignées par $\neg\meta{\phi}$ et $\meta{\phi} \lor \meta{\psi}$;
+      \item si $\meta{\phi}$ est une formule et si $\meta{x}$ est une variable alors $\p{\exists\meta{x}}\meta{\phi}$ aussi.
     \end{itemize}
     et:
     \begin{itemize}
       \item les variables sont des termes;
-      \item si $\form{\phi}$ est une formule et si $\terme{x}$ est une variable, alors $\p{\liota\terme{x}}\form{\phi}$ est un terme.
+      \item si $\meta{\phi}$ est une formule et si $\meta{x}$ est une variable, alors $\p{\liota\meta{x}}\meta{\phi}$ est un terme.
     \end{itemize}
   \end{discussion}
 
