@@ -15,7 +15,7 @@ Tous les symboles relatifs au métalangage seront dans la suite typographiés en
   \begin{discussion}
     Un \emph{langage} est la donnée:
     \begin{itemize}
-      \item d'une liste finie de \emph{symboles de relations} $\meta{R_1}, \dots, \meta{R_n}$ munis de leur \emph{arité}, contenant le \emph{symbole d'égalité} $=$ d'arité $2$;
+      \item d'une liste finie de \emph{symboles de relations} $\meta{R_0}, \meta{R_2}, \dots$ munis de leur \emph{arité}, contenant le \emph{symbole d'égalité} $=$ d'arité $2$;
       
       \item d'une infinité de \emph{symboles de variables} $\meta{v_0}, \meta{v_1}, \meta{v_2}, \dots$\footnote{Dans notre cas, ce seront des lettres latines et grecques suivies d'un nombre arbitraire de primes, par exemple $x$ ou $\alpha''$.}.
     \end{itemize}
@@ -34,42 +34,27 @@ Tous les symboles relatifs au métalangage seront dans la suite typographiés en
   \end{discussion}
 
   \begin{discussion}
-    Étant donnés $\meta{s}$ un symbole de $\meta{\mL}$, $\meta{x}$ une variable de $\meta{\mL}$ et $\meta{\xi}$ une expression de $\meta{\mL}$, on désigne par $\p{\meta{sx}}\meta{\xi}$ l'expression obtenue en rajoutant à $\meta{\xi}$ une racine étiquetée par $\meta{s}$, et remplaçant chaque étiquette $\meta{x}$ par une référence à cette nouvelle racine.
+    Étant donnés $\meta{s}$ un symbole de $\meta{\mL}$ et $\meta{\xi_1}, \dots, \meta{\xi_n}$ des expressions de $\meta{\mL}$, on désigne par $\meta{s}\p{\meta{\xi_1}, \dots, \meta{\xi_n}}$ l'expression (\textbf{TODO:} changer graphique):
+    \begin{figure}[H]
+      \centering
+      \includegraphics{formuleCas1}
+    \end{figure}
+    \noindent Alors:
+    \begin{itemize}
+      \item si $\meta{\alpha}$ et $\meta{\beta}$ sont deux formules, on note $\neg\meta{\alpha}$ et $\meta{\alpha} \lor \meta{\beta}$ en lieu et place de $\neg\p{\meta{\alpha}}$ et $\lor\p{\meta{\alpha}, \meta{\beta}}$;
+      
+      \item si $\meta{x}$ est une variable, $\p{\meta{sx}}\meta{\xi}$ est l'expression obtenue en remplaçant chaque étiquette $\meta{x}$ dans $\meta{s}\p{\meta{\xi}}$ par une reférence à la racine (étiquetée par $\meta{s}$).
+    \end{itemize}
   \end{discussion}
 
-  \begin{exemple}
-    Si $\meta{\xi}$ désigne l'expression
-    \begin{figure}[H]
-      \centering
-      \includegraphics{exempleExpression1}
-    \end{figure}
-    \noindent alors $\p{\neg x}\meta{\xi}$ est:
-    \begin{figure}[H]
-      \centering
-      \includegraphics{exempleExpression2}
-    \end{figure}
-
-    \textbf{TODO}: UTILISER TIKZ
-  \end{exemple}
-
   \begin{discussion}
-    Les \emph{formules} et les \emph{termes} de $\meta{\mL}$ sont définis récursivement de la façon suivante (à refaire, \textbf{TODO}):
+    Les \emph{formules} et les \emph{termes} de $\meta{\mL}$ sont définis récursivement de la façon suivante:
     \begin{itemize}
-      \item si $\meta{R}$ est un symbole de relation d'arité $k$ et si $\meta{\tau_1}, \dots, \meta{\tau_k}$ sont des termes, alors l'expression:
-      \begin{figure}[H]
-        \centering
-        \includegraphics{formuleCas1}
-      \end{figure}
-      est une formule, dite \emph{atomique}, notée $\meta{R}\p{\meta{\tau_1}, \dots, \meta{\tau_k}}$;
+      \item si $\meta{R}$ est un symbole de relation d'arité $n$ et si $\meta{\tau_1}, \dots, \meta{\tau_n}$ sont des termes, alors $\meta{R}\p{\meta{\tau_1}, \dots, \meta{\tau_n}}$ est une formule (dite \emph{atomique});
       
-      \item si $\meta{\phi}$ et $\meta{\psi}$ sont des formules, alors les expressions:
-      \begin{figure}[H]
-        \centering
-        \includegraphics{formuleCas2}
-        \includegraphics{formuleCas3}
-      \end{figure}
-      aussi, respectivement désignées par $\neg\meta{\phi}$ et $\meta{\phi} \lor \meta{\psi}$;
-      \item si $\meta{\phi}$ est une formule et si $\meta{x}$ est une variable alors $\p{\exists\meta{x}}\meta{\phi}$ aussi.
+      \item si $\meta{\phi}$ et $\meta{\psi}$ sont des formules, alors $\neg\meta{\phi}$ et $\meta{\phi} \lor \meta{\psi}$ également;
+      
+      \item si $\meta{\phi}$ est une formule et $\meta{x}$ une variable, alors $\p{\exists\meta{x}}\meta{\phi}$ est une formule;
     \end{itemize}
     et:
     \begin{itemize}
@@ -77,6 +62,14 @@ Tous les symboles relatifs au métalangage seront dans la suite typographiés en
       \item si $\meta{\phi}$ est une formule et si $\meta{x}$ est une variable, alors $\p{\liota\meta{x}}\meta{\phi}$ est un terme.
     \end{itemize}
   \end{discussion}
+
+  \begin{observation}
+    Si $\meta{\xi}$ est une formule (resp. un terme), $\meta{x}$ une variable et $\meta{\tau}$ un terme, alors $\meta{\xi}\subst{\meta{x}}{\meta{\tau}}$ est une formule (resp. un terme).
+  \end{observation}
+
+  \begin{justif}
+    Les symboles de variables apparaissent forcément dans les feuilles (\textbf{TODO}).
+  \end{justif}
 
 
 \section{Sémantique}
