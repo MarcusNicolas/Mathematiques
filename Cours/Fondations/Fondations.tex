@@ -1,4 +1,4 @@
-\documentclass[french, 12pt]{book}
+\documentclass{../cours}
 
 \usepackage[top=3cm, bottom=2.5cm, left=4cm, right=4cm]{geometry}
 
@@ -14,24 +14,19 @@
 
 % Titre
 \title{\Huge\textbf{\textsc{Fondations}}}
-\author{Marcus Nicolas}
-\date{}
-
-% Numérotation des sections
-\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\author{M. Nicolas}
 
 
 % Document
 \begin{document}
 
-\maketitle
-
+\couverture
 
 \include{Macros.tex}
 
-\include{1_Metamathematique.tex}
-\include{2_ClassesEnsembles.tex}
-\include{3_LangageCatégories.tex}
+\include{chapitres/1_Métamathématique.tex}
+\include{chapitres/2_ClassesEnsembles.tex}
+\include{chapitres/3_LangageCatégories.tex}
 
 
 \end{document}
