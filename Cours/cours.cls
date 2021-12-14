@@ -3,17 +3,25 @@
 
 \LoadClass[french,12pt]{memoir}
 
-\RequirePackage[top=3cm, bottom=2.5cm, left=4cm, right=4cm]{geometry}
-
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[french]{babel}
+\RequirePackage{newcent}
+\RequirePackage{titlesec}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{ifthen}
+\RequirePackage{cleveref}
 
 %%%%
 
 
 % Numérotation des sections
 \renewcommand{\thesection}{\thechapter.\arabic{section}}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\bfseries}
+
 
 \chapterstyle{thatcher}
 
@@ -22,8 +30,7 @@
 
 \newlength{\drop}
 
-\newcommand*{\couverture}{\begingroup% Anatomy of a Typeface
-\thispagestyle{empty}
+\newcommand*{\couverture}{\begin{titlingpage}
 \drop=0.1\textheight
 \vspace*{\drop}
 \centering
@@ -33,5 +40,56 @@
 \vspace{0.25\drop}
 \rule{0.5\textwidth}{0.4pt}\par
 \vspace{\drop}
-\endgroup}
+\end{titlingpage}}
+
+
+
+% Environnements mathématiques
+
+\newenvironment{discussion}[1][]
+{%
+   \noindent\stepcounter{theoreme}\textbf{\thetheoreme.}
+   \ifthenelse{\equal{#1}{}}{}{\textit{#1 ---}}
+}{\par\addvspace{\medskipamount}}
+
+\newenvironment{justif}
+{\begin{proof}[Justification]}{\end{proof}}
+
+\newenvironment{dem}
+{\begin{proof}[Démonstration]}{\end{proof}}
+
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Théorème}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemme}
+\newtheorem{ax}[thm]{Axiome}
+
+\newtheorem{metathm}[thm]{Métathéorème}
+
+
+\theoremstyle{remark}
+\newtheorem*{remarque}{Remarque}
+
+\theoremstyle{definition}
+\newtheorem{déf}[thm]{Définition}
+\newtheorem{ex}[thm]{Exemple}
+
+
+\crefname{thm}{théorème}{théorèmes}
+\Crefname{thm}{Théorème}{Théorèmes}
+\crefname{prop}{proposition}{propositions}
+\Crefname{prop}{Proposition}{Propositions}
+\crefname{lem}{lemme}{lemmes}
+\Crefname{lem}{Lemme}{Lemmes}
+\crefname{ax}{axiome}{axiomes}
+\Crefname{ax}{Axiome}{Axiomes}
+\crefname{déf}{définition}{définitions}
+\Crefname{déf}{Définition}{Définitions}
+\crefname{ex}{exemple}{exemples}
+\Crefname{ex}{Exemple}{Exemples}
+
+\crefname{metathm}{métathéorème}{métathéorèmes}
+\Crefname{metathm}{Métathéorème}{Métathéorèmes}
 
