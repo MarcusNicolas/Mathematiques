@@ -1,11 +1,28 @@
 \chapter{Métamathématique}
 
-Que signifie l'expression \emph{faire des mathématiques} ? À ma connaissance, il n'existe pas au sein de la communauté mathématique de réponse faisant l'unanimité. Il est donc nécessaire, comme toujours, de prendre les problèmes à la racine et de définir aussi rigoureusement que faire se peut en quoi ce en quoi consiste la pratique mathématique telle qu'envisagée dans ce cours, c'est-à-dire entre autres à donner un sens à des mots comme \emph{énoncé}, \emph{démonstration}, \emph{théorie}, etc.
+Que signifie l'expression \emph{faire des mathématiques} ? À ma connaissance, il n'existe pas au sein de la communauté mathématique de réponse faisant l'unanimité. Il est donc nécessaire, comme toujours, de prendre les problèmes à la racine et de définir aussi rigoureusement que faire se peut ce en quoi consiste la pratique mathématique telle qu'envisagée dans ce cours, c'est-à-dire entre autres à donner un sens à des mots comme \emph{énoncé}, \emph{démonstration}, \emph{théorie}, etc.
 
-Le lecteur aura remarqué que nous avons promis dans ce chapitre une exposition \emph{aussi rigoureuse que possible}, et non pas rigoureuse. C'est parce que tout l'objectif de ce chapitre est justement de clarifier ce que nous entendons par le mot \emph{rigueur}, qui sera pour nous un synonyme de \emph{mathématique}. PARLER DE MÉTALANGAGE
+Le lecteur aura remarqué que nous avons promis dans ce chapitre une exposition \emph{aussi rigoureuse que possible}, et non pas rigoureuse. C'est parce que tout l'objectif de ce chapitre est justement de clarifier ce que nous entendons par le mot \emph{rigueur}. Dans cette entreprise de clarification, notre seul outil sera le langage courant, ou \emph{métalangage}, dans lequel il est possible de formuler des raisonnements lorsqu'ils restent basiques. C'est pourquoi nous baserons notre construction sur la manipulation \emph{algorithmique} d'objets \emph{finis}, donc théoriquement implémentable sur une machine.
+
+Tous les symboles relatifs au métalangage seront dans la suite typographiés en gras. Typiquement, les symboles $\metalng{0}, \metalng{1}, \metalng{2}, \dots$ désignent bien ce que l'on croit.
 
 
 \section{Langage et syntaxe}
+
+  \begin{discussion}
+    On appelle \emph{symbole logique} les signes $\neg, \lor, \liota, \exists$.
+  \end{discussion}
+
+  \begin{discussion}
+    Un \emph{langage} est la donnée:
+    \begin{itemize}
+      \item d'une liste finie de \emph{symboles de relations} $\metalng{R_0}, \metalng{R_1}, \metalng{R_2}, \dots$, chacun étant muni d'un entier positif appelé \emph{arité};
+      \item d'une infinité\footnote{Dans notre cas, ce seront toujours les lettres (généralement latines ou grecques) affublées d'un nombre fini d'indices et de primes (par exemple, $x$, $\alpha''$ ou $\Gamma_{0,1}'$).} de \emph{symboles de variables} $\metalng{v_0}, \metalng{v_1}, \metalng{v_2}, \dots$.
+    \end{itemize}
+    Dans cette description, il est bien sûr implicitement supposé que les collections des symboles logiques, de relations et de variables sont disjointes. Considérées simultanément, elles forment ce que l'on appelle les \emph{symboles} du langage.
+    
+    On fixe dans la suite un langage $\metalng{\mL}$. Une \emph{expression} de $\metalng{\mL}$ est un arbre enraciné dont chaque n\oe{}ud est étiqueté par un symbole de $\metalng{\mL}$ ou par une référence à un autre n\oe{}ud. Graphiquement, on représentera les références d'un n\oe{}ud à un autre par une flèche en pointillé.
+  \end{discussion}
 
   \subsection*{Substitutions}
 

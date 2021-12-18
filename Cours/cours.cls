@@ -6,7 +6,6 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[french]{babel}
-\RequirePackage{newcent}
 \RequirePackage{titlesec}
 
 \RequirePackage{amsmath}
@@ -31,6 +30,7 @@
 \newlength{\drop}
 
 \newcommand*{\couverture}{\begin{titlingpage}
+\fontencoding{T1}\fontfamily{pnc}\selectfont
 \drop=0.1\textheight
 \vspace*{\drop}
 \centering
@@ -48,7 +48,7 @@
 
 \newenvironment{discussion}[1][]
 {%
-   \noindent\stepcounter{theoreme}\textbf{\thetheoreme.}
+   \noindent\stepcounter{thm}\textbf{\thethm.}
    \ifthenelse{\equal{#1}{}}{}{\textit{#1 ---}}
 }{\par\addvspace{\medskipamount}}
 
