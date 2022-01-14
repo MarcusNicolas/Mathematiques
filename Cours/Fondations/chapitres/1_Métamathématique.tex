@@ -24,11 +24,9 @@ Tous les symboles relatifs au métalangage seront dans la suite typographiés en
     On fixe dans la suite un langage $\metalng{\mL}$. Une \emph{expression} de $\metalng{\mL}$ est un arbre enraciné dont chaque n\oe{}ud est étiqueté par un symbole de $\metalng{\mL}$ ou par une référence à un autre n\oe{}ud. Graphiquement, on représentera les références d'un n\oe{}ud à un autre par une flèche en pointillé.
   \end{discussion}
 
-  \subsection*{Substitutions}
-
-    \begin{ex}
-      oui
-    \end{ex}
+  \begin{discussion}[Substitution]
+    Étant données deux expressions $\metalng{\alpha}$ et $\metalng{\xi}$ et une variable $\metalng{x}$, on définit $\metalng{\xi}\subst{\metalng{x}}{\metalng{\alpha}}$ comme étant l'expression obtenue en remplaçant dans $\metalng{\xi}$ toutes les feuilles étiquetées par $\metalng{x}$ par l'arbre $\metalng{\alpha}$.
+  \end{discussion}
 
 
 \section{Théories mathématiques}
