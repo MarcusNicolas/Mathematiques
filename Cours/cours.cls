@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}[2021/06/01]
 \ProvidesClass{cours}[2021/12/12]
 
-\LoadClass[french,12pt]{memoir}
+\LoadClass[french,10pt]{memoir}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}

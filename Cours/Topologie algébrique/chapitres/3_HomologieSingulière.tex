@@ -1,2 +1,44 @@
 \chapter{Homologie singulière}
 
+Soit $\p{B, b_0}$ un espace topologique délaçable pointé.
+
+
+\section{Premières définitions}
+
+  \begin{déf}
+    Étant donné $n \geq 0$, le $n$-simplexe standard $\Delta^n$ est:
+    \[\Delta^n \defeq \conv\p{e_0, \dots, e_n} \subseteq \R^{n+1}\]
+    où $\p{e_i}_{0 \leq i \leq n}$ désigne la base canonique de $\R^{n+1}$.\\
+    Le barycentre de $\Delta^n$ est noté $c_n$.
+
+    \smallskip
+
+    Pour $0 \leq i \leq n$, on définit la $i$-ième face de $\Delta^n$:
+    \[\app{\partial_i^n}{\Delta^{n-1} \fleche \Delta^n}\]
+    comme étant l'unique application affine vérifiant:
+    \[\partial_i^n\p{e_0, \dots, e_{n-1}} = \p{e_0, \dots, \hat{e_i}, \dots, e_n}\]
+  \end{déf}
+
+  \begin{déf}
+    Un $n$-simplexe singulier de $X$ est une application $\Delta^n \fleche X$.
+  \end{déf}
+
+
+  \begin{discussion}
+    Soit $X$ un espace topologique muni d'une application $\app{f}{X \fleche B}$.\\
+    
+    Si $n \geq 0$, le groupe des $n$-chaînes singulières de $X$ $f$-marquées dans $B$ est le groupe abélien libre:
+    \[C_n^{(f)}\p{X; B} \defeq \bigoplus_{\p{\sigma, \gamma}} \Z\]
+    où la somme porte sur l'ensemble des $n$-simplexes singuliers $\sigma$ de $X$ marqués par un chemin $\gamma$ de $B$ reliant $b_0$ à $f \circ \sigma\p{c_n}$. Lorsqu'il n'y a pas d'ambiguïté, on écrit $C_n\p{X; B}$ au lieu de $C_n^{(f)}\p{X; B}$.\\
+    
+    On définit un opérateur  ($\Z[\pi]$-linéaire)
+    \[\app{\partial}{C_n^{(f)}\p{X; B} \lfleche C_{n-1}^{(f)}\p{X; B}}\]
+    par:
+    \[\partial\p{\sigma, \gamma} = \sum_{i=0}^n \p{-1}^i \p{\sigma \circ \partial_i^n, \gamma \cdot \p{f \circ \sigma \circ \alpha_i}}\]
+    où $\alpha_i$ désigne n'importe quel chemin de $\Delta^n$ reliant $c_n$ à $\partial_i^n\p{c_{n-1}}$ (pour tout $0 \leq i \leq n$). On vérifie que $\partial^2 = 0$.
+  \end{discussion}
+
+
+\section{Fonctorialité}
+
+\section{Excision}
